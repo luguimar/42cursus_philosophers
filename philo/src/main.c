@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 03:30:28 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/02 04:13:08 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/02 06:37:01 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,21 @@ int	init_philo(t_table *table)
 	int	i;
 
 	table->forks = malloc(sizeof(int) * table->nb_philo);
-	table->forks_mutex = malloc(sizeof(pthread_mutex_t) * table->nb_philo);
-	table->philos = malloc(sizeof(t_philo) * table->nb_philo);
-	if (!table->forks || !table->forks_mutex || !table->philos)
+	if (!table->forks)
 		return (1);
+	table->forks_mutex = malloc(sizeof(pthread_mutex_t) * table->nb_philo);
+	if (!table->forks_mutex)
+	{
+		free(table->forks);
+		return (1);
+	}
+	table->philos = malloc(sizeof(t_philo) * table->nb_philo);
+	if (!table->philos)
+	{
+		free(table->forks);
+		free(table->forks_mutex);
+		return (1);
+	}
 	i = 0;
 	while (i < table->nb_philo)
 	{
