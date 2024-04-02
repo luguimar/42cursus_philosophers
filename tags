@@ -17,9 +17,34 @@ INCLUDE	philo/Makefile	/^INCLUDE = -I .$/;"	m
 MAKE	philo/Makefile	/^MAKE = make -C$/;"	m
 NAME	philo/Makefile	/^NAME = philo$/;"	m
 OBJS	philo/Makefile	/^OBJS = ${SRC:.c=.o}$/;"	m
+PHILO_H	philo/include/philo.h	/^# define PHILO_H$/;"	d
 REMOVE	philo/Makefile	/^REMOVE = rm -f$/;"	m
 SRC	philo/Makefile	/^SRC = main.c philo.c utils.c init.c threads.c monitor.c$/;"	m
 all	philo/Makefile	/^all: ${NAME}$/;"	t
 clean	philo/Makefile	/^clean:$/;"	t
 fclean	philo/Makefile	/^fclean: clean$/;"	t
+forks	philo/include/philo.h	/^	int				*forks;$/;"	m	struct:s_table	typeref:typename:int *
+forks_mutex	philo/include/philo.h	/^	pthread_mutex_t	*forks_mutex;$/;"	m	struct:s_table	typeref:typename:pthread_mutex_t *
+ft_atoi	philo/src/main.c	/^int	ft_atoi(const char *str)$/;"	f	typeref:typename:int
+get_time	philo/src/main.c	/^long	get_time(void)$/;"	f	typeref:typename:long
+id	philo/include/philo.h	/^	int				id;$/;"	m	struct:s_philo	typeref:typename:int
+init_philo	philo/src/main.c	/^int	init_philo(t_table *table)$/;"	f	typeref:typename:int
+last_meal	philo/include/philo.h	/^	long long int	last_meal;$/;"	m	struct:s_philo	typeref:typename:long long int
+main	philo/src/main.c	/^int	main(int argc, char **argv)$/;"	f	typeref:typename:int
+nb_eat	philo/include/philo.h	/^	int				nb_eat;$/;"	m	struct:s_table	typeref:typename:int
+nb_meals	philo/include/philo.h	/^	int				nb_meals;$/;"	m	struct:s_philo	typeref:typename:int
+nb_philo	philo/include/philo.h	/^	int				nb_philo;$/;"	m	struct:s_table	typeref:typename:int
+parse_args	philo/src/main.c	/^int	parse_args(t_table *table, int argc, char **argv)$/;"	f	typeref:typename:int
+philos	philo/include/philo.h	/^	t_philo			*philos;$/;"	m	struct:s_table	typeref:typename:t_philo *
 re	philo/Makefile	/^re: fclean all$/;"	t
+s_philo	philo/include/philo.h	/^typedef struct s_philo$/;"	s
+s_table	philo/include/philo.h	/^typedef struct s_table$/;"	s
+someone_dead	philo/include/philo.h	/^	int				someone_dead;$/;"	m	struct:s_table	typeref:typename:int
+start_time	philo/include/philo.h	/^	long long int	start_time;$/;"	m	struct:s_table	typeref:typename:long long int
+t_philo	philo/include/philo.h	/^}					t_philo;$/;"	t	typeref:struct:s_philo
+t_table	philo/include/philo.h	/^}					t_table;$/;"	t	typeref:struct:s_table
+table	philo/include/philo.h	/^	struct s_table	*table;$/;"	m	struct:s_philo	typeref:struct:s_table *
+thread	philo/include/philo.h	/^	pthread_t		thread;$/;"	m	struct:s_philo	typeref:typename:pthread_t
+time_to_die	philo/include/philo.h	/^	int				time_to_die;$/;"	m	struct:s_table	typeref:typename:int
+time_to_eat	philo/include/philo.h	/^	int				time_to_eat;$/;"	m	struct:s_table	typeref:typename:int
+time_to_sleep	philo/include/philo.h	/^	int				time_to_sleep;$/;"	m	struct:s_table	typeref:typename:int
