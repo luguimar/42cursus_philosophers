@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 03:24:28 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/04 03:28:07 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:43:02 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,10 @@ typedef struct s_table
 	int				nb_meals;
 	int				eat_that_meal;
 	int				everyone_ate;
-	int				someone_dead;
+	int				simulation_end;
 	long long int	start_time;
 	pthread_mutex_t	*forks_mutex;
 	pthread_mutex_t	print_mutex;
-	pthread_mutex_t	death_mutex;
 	pthread_mutex_t	nb_meals_mutex;
 	pthread_mutex_t	everyone_ate_mutex;
 	pthread_mutex_t	eat_that_meal_mutex;

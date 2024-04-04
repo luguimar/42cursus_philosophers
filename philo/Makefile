@@ -6,7 +6,7 @@
 #    By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/24 23:16:33 by luguimar          #+#    #+#              #
-#    Updated: 2024/04/04 04:28:36 by luguimar         ###   ########.fr        #
+#    Updated: 2024/04/04 16:59:43 by luguimar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,6 @@ MAKE = make -C
 
 $(NAME): ${OBJS}
 		${CC} ${OBJS} -o ${NAME}
-
-${OBJS}:
-		${CC} ${CFLAGS} ${INCLUDE} -c ${SRC} -o ${OBJS}
 
 all: ${NAME}
 
