@@ -6,11 +6,11 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 03:30:28 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/04 04:24:43 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/04 06:17:46 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../include/philo.h"
 
 long	get_time(void)
 {
