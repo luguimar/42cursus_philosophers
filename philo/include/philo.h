@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 03:24:28 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/09 21:31:32 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:13:42 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_table
 	pthread_mutex_t	nb_meals_mutex;
 	pthread_mutex_t	everyone_ate_mutex;
 	pthread_mutex_t	eat_that_meal_mutex;
+	pthread_mutex_t	simulation_end_mutex;
 	t_philo			*philos;
 }					t_table;
 

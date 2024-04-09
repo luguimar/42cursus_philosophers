@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 03:30:28 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/09 20:36:24 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:30:26 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,16 @@ void	*routine(void *arg)
 
 int	end_simulation(t_table *table)
 {
+	pthread_mutex_lock(&table->simulation_end_mutex);
 	pthread_mutex_lock(&table->nb_meals_mutex);
 	if (table->nb_eat != -1 && table->nb_meals >= table->nb_eat)
 	{
+		table->simulation_end = 1;
 		pthread_mutex_lock(&table->print_mutex);
 		printf("Everyone ate %d meals\n", table->nb_meals);
 		pthread_mutex_unlock(&table->print_mutex);
 		pthread_mutex_unlock(&table->nb_meals_mutex);
+		pthread_mutex_unlock(&table->simulation_end_mutex);
 		return (1);
 	}
 	pthread_mutex_unlock(&table->nb_meals_mutex);

@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 20:00:10 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/09 20:35:51 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:04:49 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,16 @@ int	philo_atoi(const char *str)
 	int				i;
 	long long int	nb;
 
-	i = -1;
+	i = 0;
 	nb = 0;
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
 		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
-	while (str[++i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
+	{
 		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
 	if (str[i] != '\0' || nb > 2147483647)
 		return (-1);
 	return ((int)nb);
