@@ -6,13 +6,13 @@
 #    By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/24 23:16:33 by luguimar          #+#    #+#              #
-#    Updated: 2024/04/09 20:02:17 by luguimar         ###   ########.fr        #
+#    Updated: 2024/04/09 20:38:45 by luguimar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-SRC = src/main.c src/utils.c
+SRC = src/main.c src/main_extra.c src/utils.c src/actions.c
 
 OBJS = ${SRC:.c=.o}
 

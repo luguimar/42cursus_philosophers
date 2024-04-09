@@ -19,7 +19,7 @@ NAME	philo/Makefile	/^NAME = philo$/;"	m
 OBJS	philo/Makefile	/^OBJS = ${SRC:.c=.o}$/;"	m
 PHILO_H	philo/include/philo.h	/^# define PHILO_H$/;"	d
 REMOVE	philo/Makefile	/^REMOVE = rm -f$/;"	m
-SRC	philo/Makefile	/^SRC = src\/main.c src\/utils.c$/;"	m
+SRC	philo/Makefile	/^SRC = src\/main.c src\/main_extra.c src\/utils.c src\/actions.c$/;"	m
 all	philo/Makefile	/^all: ${NAME}$/;"	t
 clean	philo/Makefile	/^clean:$/;"	t
 eat	philo/src/actions.c	/^int	eat(t_philo *philo)$/;"	f	typeref:typename:int
