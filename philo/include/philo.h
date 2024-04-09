@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 03:24:28 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/09 20:36:15 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/09 21:31:32 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,9 @@ int				end_simulation_extra(t_table *table);
 int				start_simulation_extra(t_table *table);
 void			init_philo_extra(t_table *table);
 int				parse_args(t_table *table, int argc, char **argv);
+int				sleep_philo(t_philo *philo);
+int				think(t_philo *philo);
+int				eat(t_philo *philo);
+int				take_forks(t_philo *philo);
 
 #endif
