@@ -1,23 +1,84 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/luguimar/Documents/Common_Core_Repositories/42cursus_philosophers/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+$(NAME)	philo/Makefile	/^$(NAME): ${OBJS}$/;"	t
+.c.o	philo/Makefile	/^.c.o:$/;"	t
+42 Philosophers Tester	philo/42-philosophers-tester/README.md	/^# 42 Philosophers Tester$/;"	c
+42cursus_philosophers	README.md	/^# 42cursus_philosophers$/;"	c
+CC	philo/42-philosophers-tester/Makefile	/^CC				=	gcc$/;"	m
+CC	philo/Makefile	/^CC = cc -pthread -g #-fsanitize=thread$/;"	m
+CFLAGS	philo/42-philosophers-tester/Makefile	/^CFLAGS			=	-Wall -Wextra -Werror$/;"	m
+CFLAGS	philo/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
+EC	philo/42-philosophers-tester/visualizer.py	/^from selenium.webdriver.support import expected_conditions as EC$/;"	x	nameref:unknown:expected_conditions
+Failed tests	philo/42-philosophers-tester/README.md	/^### Failed tests$/;"	S	section:42 Philosophers Tester""Usage
+Future ideas	philo/42-philosophers-tester/README.md	/^### Future ideas$/;"	S	section:42 Philosophers Tester""Usage
+INCLUDE	philo/Makefile	/^INCLUDE = -I .\/include$/;"	m
+Installation	philo/42-philosophers-tester/README.md	/^## Installation$/;"	s	chapter:42 Philosophers Tester
+MAKE	philo/Makefile	/^MAKE = make -C$/;"	m
+NAME	philo/Makefile	/^NAME = philo$/;"	m
+OBJS	philo/Makefile	/^OBJS = ${SRC:.c=.o}$/;"	m
 PHILO_H	philo/include/philo.h	/^# define PHILO_H$/;"	d
+REMOVE	philo/Makefile	/^REMOVE = rm -f$/;"	m
+Ressources	philo/42-philosophers-tester/README.md	/^### Ressources$/;"	S	section:42 Philosophers Tester""Usage
+SRC	philo/Makefile	/^SRC = src\/main.c src\/main_extra.c src\/utils.c src\/actions.c$/;"	m
+Screenshots	philo/42-philosophers-tester/README.md	/^### Screenshots$/;"	S	section:42 Philosophers Tester""Usage
+Tester for the Dininig Philosophers Problem project at 42 Schools	philo/42-philosophers-tester/README.md	/^#### Tester for the Dininig Philosophers Problem project at 42 Schools$/;"	t	chapter:42 Philosophers Tester
+Usage	philo/42-philosophers-tester/README.md	/^## Usage$/;"	s	chapter:42 Philosophers Tester
+Usage optional	philo/42-philosophers-tester/README.md	/^### Usage optional$/;"	S	section:42 Philosophers Tester""Usage
+Valgrind	philo/42-philosophers-tester/README.md	/^### Valgrind$/;"	S	section:42 Philosophers Tester""Usage
+Visualizer	philo/42-philosophers-tester/README.md	/^### Visualizer$/;"	S	section:42 Philosophers Tester""Usage
+Why	philo/42-philosophers-tester/README.md	/^### Why$/;"	S	section:42 Philosophers Tester""Usage
+all	philo/Makefile	/^all: ${NAME}$/;"	t
+clean	philo/42-philosophers-tester/Makefile	/^clean:$/;"	t
+clean	philo/Makefile	/^clean:$/;"	t
+cleanup	philo/42-philosophers-tester/test.sh	/^function cleanup()$/;"	f
+die	philo/42-philosophers-tester/test.sh	/^die () {$/;"	f
+driver	philo/42-philosophers-tester/visualizer.py	/^    driver = webdriver.Chrome(options=chrome_options)$/;"	v
 eat	philo/src/actions.c	/^int	eat(t_philo *philo)$/;"	f	typeref:typename:int
 eat_that_meal	philo/include/philo.h	/^	int				*eat_that_meal;$/;"	m	struct:s_table	typeref:typename:int *
 end_simulation	philo/src/main.c	/^int	end_simulation(t_table *table, int print)$/;"	f	typeref:typename:int
 end_simulation_extra	philo/src/main_extra.c	/^int	end_simulation_extra(t_table *table, int print)$/;"	f	typeref:typename:int
+even_die	philo/42-philosophers-tester/test.sh	/^even_die () {$/;"	f
+even_die_extended	philo/42-philosophers-tester/test.sh	/^even_die_extended () {$/;"	f
+even_live	philo/42-philosophers-tester/test.sh	/^even_live () {$/;"	f
+even_live_extended	philo/42-philosophers-tester/test.sh	/^even_live_extended () {$/;"	f
 everything_else_mutex	philo/include/philo.h	/^	pthread_mutex_t	everything_else_mutex;$/;"	m	struct:s_table	typeref:typename:pthread_mutex_t
+fclean	philo/Makefile	/^fclean: clean$/;"	t
+filename	philo/42-philosophers-tester/visualizer.py	/^    filename = 'fails\/' + os.fsdecode(file)$/;"	v
 forks_mutex	philo/include/philo.h	/^	pthread_mutex_t	*forks_mutex;$/;"	m	struct:s_table	typeref:typename:pthread_mutex_t *
 get_passed_time	philo/src/utils.c	/^long long int	get_passed_time(t_philo *philo)$/;"	f	typeref:typename:long long int
 get_time	philo/src/utils.c	/^long long int	get_time(void)$/;"	f	typeref:typename:long long int
 get_time_to_think	philo/src/utils.c	/^long long int	get_time_to_think(t_philo *philo)$/;"	f	typeref:typename:long long int
+hardcore_tests	philo/42-philosophers-tester/test.sh	/^hardcore_tests () {$/;"	f
+i	philo/42-philosophers-tester/visualizer.py	/^i = 0$/;"	v
 id	philo/include/philo.h	/^	int				id;$/;"	m	struct:s_philo	typeref:typename:int
 init_philo	philo/src/main.c	/^int	init_philo(t_table *table, int i)$/;"	f	typeref:typename:int
 init_philo_aux	philo/src/main_extra.c	/^void	init_philo_aux(t_table *table, int i)$/;"	f	typeref:typename:void
 last_meal	philo/include/philo.h	/^	long long int	last_meal;$/;"	m	struct:s_philo	typeref:typename:long long int
+lines	philo/42-philosophers-tester/visualizer.py	/^        lines = f.readlines()$/;"	v
+live	philo/42-philosophers-tester/test.sh	/^live () {$/;"	f
 main	philo/src/main.c	/^int	main(int argc, char **argv)$/;"	f	typeref:typename:int
+mandatory_tests	philo/42-philosophers-tester/test.sh	/^mandatory_tests () {$/;"	f
 nb_eat	philo/include/philo.h	/^	int				nb_eat;$/;"	m	struct:s_table	typeref:typename:int
 nb_philo	philo/include/philo.h	/^	int				nb_philo;$/;"	m	struct:s_table	typeref:typename:int
+normal_hardcore	philo/42-philosophers-tester/test.sh	/^normal_hardcore () {$/;"	f
+normal_tests	philo/42-philosophers-tester/test.sh	/^normal_tests () {$/;"	f
+own_test	philo/42-philosophers-tester/test.sh	/^own_test () {$/;"	f
 parse_args	philo/src/utils.c	/^int	parse_args(t_table *table, int argc, char **argv)$/;"	f	typeref:typename:int
 philo_atoi	philo/src/utils.c	/^int	philo_atoi(const char *str)$/;"	f	typeref:typename:int
 philos	philo/include/philo.h	/^	t_philo			*philos;$/;"	m	struct:s_table	typeref:typename:t_philo *
+print_loading_bar	philo/42-philosophers-tester/test.sh	/^print_loading_bar () {$/;"	f
+print_percent	philo/42-philosophers-tester/test.sh	/^print_percent () {$/;"	f
+re	philo/42-philosophers-tester/Makefile	/^re:$/;"	t
+re	philo/Makefile	/^re: fclean clean all$/;"	t
 routine	philo/src/main.c	/^void	*routine(void *arg)$/;"	f	typeref:typename:void *
 s_philo	philo/include/philo.h	/^typedef struct s_philo$/;"	s
 s_table	philo/include/philo.h	/^typedef struct s_table$/;"	s
@@ -32,7 +93,15 @@ table	philo/include/philo.h	/^	struct s_table	*table;$/;"	m	struct:s_philo	typer
 take_forks	philo/src/actions.c	/^int	take_forks(t_philo *philo)$/;"	f	typeref:typename:int
 take_forks_even	philo/src/actions.c	/^static int	take_forks_even(t_philo *philo)$/;"	f	typeref:typename:int	file:
 take_forks_odd	philo/src/actions.c	/^static int	take_forks_odd(t_philo *philo)$/;"	f	typeref:typename:int	file:
+text	philo/42-philosophers-tester/test.sh	/^text () {$/;"	f
+textarea	philo/42-philosophers-tester/visualizer.py	/^        textarea = driver.find_element(By.CSS_SELECTOR, "textarea")$/;"	v
 thread	philo/include/philo.h	/^	pthread_t		thread;$/;"	m	struct:s_philo	typeref:typename:pthread_t
 time_to_die	philo/include/philo.h	/^	int				time_to_die;$/;"	m	struct:s_table	typeref:typename:int
 time_to_eat	philo/include/philo.h	/^	int				time_to_eat;$/;"	m	struct:s_table	typeref:typename:int
 time_to_sleep	philo/include/philo.h	/^	int				time_to_sleep;$/;"	m	struct:s_table	typeref:typename:int
+uneven_die	philo/42-philosophers-tester/test.sh	/^uneven_die () {$/;"	f
+uneven_die_extended	philo/42-philosophers-tester/test.sh	/^uneven_die_extended () {$/;"	f
+uneven_live	philo/42-philosophers-tester/test.sh	/^uneven_live () {$/;"	f
+uneven_live_extended	philo/42-philosophers-tester/test.sh	/^uneven_live_extended () {$/;"	f
+url	philo/42-philosophers-tester/visualizer.py	/^url = "https:\/\/nafuka11.github.io\/philosophers-visualizer\/"$/;"	v
+visualizer	philo/42-philosophers-tester/test.sh	/^visualizer () {$/;"	f

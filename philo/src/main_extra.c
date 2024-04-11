@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 20:28:39 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/11 10:53:52 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:08:27 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	end_simulation_extra(t_table *table, int print)
 	while (++i < table->nb_philo)
 	{
 		pthread_mutex_lock(&table->everything_else_mutex);
-		if (table->philos[i].last_meal + table->time_to_die < get_time())
+		if (table->philos[i].last_meal + table->time_to_die <= get_time())
 		{
 			table->simulation_end = 1;
 			if (print)
