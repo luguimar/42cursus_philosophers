@@ -6,11 +6,32 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 20:00:10 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/11 07:52:48 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/11 10:43:42 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+
+long long int	get_time_to_think(t_philo *philo)
+{
+	long long int	time_to_think;
+
+	if (philo->table->nb_philo % 2 == 0)
+		return (0);
+	time_to_think = (philo->table->time_to_die - philo->table->time_to_eat \
+		- philo->table->time_to_sleep) / 2;
+	if (time_to_think < 0)
+		time_to_think = 0;
+	if (time_to_think > philo->table->time_to_eat && time_to_think \
+		> philo->table->time_to_sleep)
+	{
+		if (philo->table->time_to_eat < philo->table->time_to_sleep)
+			time_to_think = philo->table->time_to_eat / 2;
+		else
+			time_to_think = philo->table->time_to_sleep / 2;
+	}
+	return (time_to_think);
+}
 
 long long int	get_passed_time(t_philo *philo)
 {

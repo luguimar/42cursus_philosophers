@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 03:30:28 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/11 07:33:33 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/11 10:54:21 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	*routine(void *arg)
 {
-	t_philo	*philo;
+	long long int	time_to_think;
+	t_philo			*philo;
 
 	philo = (t_philo *)arg;
+	time_to_think = get_time_to_think(philo);
 	while (1)
 	{
 		if (take_forks(philo))
@@ -28,30 +30,35 @@ void	*routine(void *arg)
 		usleep(philo->table->time_to_sleep * 1000);
 		if (sleep_and_think(philo, "thinking"))
 			return (NULL);
+		usleep(time_to_think * 1000);
 	}
 	return (NULL);
 }
 
-int	end_simulation(t_table *table)
+int	end_simulation(t_table *table, int print)
 {
 	int	i;
 	int	ate_all;
 
 	i = -1;
 	ate_all = 0;
-	//pthread_mutex_lock(&table->everything_else_mutex);
 	while (++i < table->nb_philo)
 	{
+		pthread_mutex_lock(&table->everything_else_mutex);
 		if (table->nb_eat != -1 && table->eat_that_meal[i] >= table->nb_eat)
 			ate_all++;
 		if (ate_all == table->nb_philo)
 		{
 			table->simulation_end = 1;
-		//	pthread_mutex_unlock(&table->everything_else_mutex);
+			if (print)
+				printf("All philosophers ate at least %d times\n", \
+					table->nb_eat);
+			pthread_mutex_unlock(&table->everything_else_mutex);
 			return (1);
 		}
+		pthread_mutex_unlock(&table->everything_else_mutex);
 	}
-	return (end_simulation_extra(table));
+	return (end_simulation_extra(table, print));
 }
 
 int	start_simulation(t_table *table)
@@ -68,7 +75,7 @@ int	start_simulation(t_table *table)
 		i++;
 	}
 	i = 0;
-	while (!end_simulation(table))
+	while (!end_simulation(table, 1))
 		;
 	while (i < table->nb_philo)
 	{

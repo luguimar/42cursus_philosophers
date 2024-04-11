@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 20:34:03 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/11 07:55:21 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:03:54 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,22 @@ int	take_forks(t_philo *philo)
 	{
 		if (take_forks_even(philo))
 			return (1);
+	}
+	else if (philo->table->nb_philo == 1)
+	{
+		pthread_mutex_lock(&philo->table->forks_mutex[philo->id - 1]);
+		pthread_mutex_lock(&philo->table->everything_else_mutex);
+		if (philo->table->simulation_end)
+		{
+			pthread_mutex_unlock(&philo->table->everything_else_mutex);
+			pthread_mutex_unlock(&philo->table->forks_mutex[philo->id - 1]);
+			return (1);
+		}
+		printf("%lld %d has taken a fork\n", get_passed_time(philo), philo->id);
+		pthread_mutex_unlock(&philo->table->everything_else_mutex);
+		while (!end_simulation(philo->table, 0))
+			;
+		return (1);
 	}
 	else if (take_forks_odd(philo))
 		return (1);
