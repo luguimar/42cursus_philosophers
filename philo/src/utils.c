@@ -6,11 +6,16 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 20:00:10 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/09 22:04:49 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/11 07:52:48 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+
+long long int	get_passed_time(t_philo *philo)
+{
+	return (get_time() - philo->table->start_time);
+}
 
 long long int	get_time(void)
 {

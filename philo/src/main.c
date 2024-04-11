@@ -6,7 +6,7 @@
 /*   By: luguimar <luguimar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 03:30:28 by luguimar          #+#    #+#             */
-/*   Updated: 2024/04/09 22:30:26 by luguimar         ###   ########.fr       */
+/*   Updated: 2024/04/11 07:33:33 by luguimar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ void	*routine(void *arg)
 			return (NULL);
 		if (eat(philo))
 			return (NULL);
-		if (think(philo))
+		if (sleep_and_think(philo, "sleeping"))
 			return (NULL);
-		if (sleep_philo(philo))
+		usleep(philo->table->time_to_sleep * 1000);
+		if (sleep_and_think(philo, "thinking"))
 			return (NULL);
 	}
 	return (NULL);
@@ -33,19 +34,23 @@ void	*routine(void *arg)
 
 int	end_simulation(t_table *table)
 {
-	pthread_mutex_lock(&table->simulation_end_mutex);
-	pthread_mutex_lock(&table->nb_meals_mutex);
-	if (table->nb_eat != -1 && table->nb_meals >= table->nb_eat)
+	int	i;
+	int	ate_all;
+
+	i = -1;
+	ate_all = 0;
+	//pthread_mutex_lock(&table->everything_else_mutex);
+	while (++i < table->nb_philo)
 	{
-		table->simulation_end = 1;
-		pthread_mutex_lock(&table->print_mutex);
-		printf("Everyone ate %d meals\n", table->nb_meals);
-		pthread_mutex_unlock(&table->print_mutex);
-		pthread_mutex_unlock(&table->nb_meals_mutex);
-		pthread_mutex_unlock(&table->simulation_end_mutex);
-		return (1);
+		if (table->nb_eat != -1 && table->eat_that_meal[i] >= table->nb_eat)
+			ate_all++;
+		if (ate_all == table->nb_philo)
+		{
+			table->simulation_end = 1;
+		//	pthread_mutex_unlock(&table->everything_else_mutex);
+			return (1);
+		}
 	}
-	pthread_mutex_unlock(&table->nb_meals_mutex);
 	return (end_simulation_extra(table));
 }
 
@@ -85,18 +90,17 @@ int	init_philo(t_table *table, int i)
 		free(table->forks_mutex);
 		return (1);
 	}
-	while (++i < table->nb_philo)
+	table->eat_that_meal = malloc(sizeof(int) * table->nb_philo);
+	if (!table->eat_that_meal)
 	{
-		pthread_mutex_init(&table->forks_mutex[i], NULL);
-		table->philos[i].id = i + 1;
-		table->philos[i].nb_meals = 0;
-		table->philos[i].last_meal = 0;
-		table->philos[i].table = table;
-		table->philos[i].last_meal = get_time();
-		pthread_mutex_init(&table->philos[i].philo_mutex, NULL);
+		free(table->forks_mutex);
+		free(table->philos);
+		return (1);
 	}
-	table->nb_meals = 0;
-	init_philo_extra(table);
+	while (++i < table->nb_philo)
+		init_philo_aux(table, i);
+	table->simulation_end = 0;
+	pthread_mutex_init(&table->everything_else_mutex, NULL);
 	return (0);
 }
 
